@@ -1,3 +1,9 @@
 [submodule "Chimera"]
 	path = Chimera
 	url = https://github.com/brandonbraun653/Chimera.git
+[submodule "lib/FreeRTOS"]
+	path = lib/FreeRTOS
+	url = https://github.com/brandonbraun653/FreeRTOS.git
+[submodule "lib/CommonTools"]
+	path = lib/CommonTools
+	url = https://github.com/brandonbraun653/CommonTools.git
