@@ -1,0 +1,21 @@
+import feature ;
+
+alias simPosix
+    :   /CHIMERA//CORE 
+    :   <FreeRTOS>enabled
+        <FreeRTOSPort>Posix
+        <link>static
+
+        <include>/usr/include
+    ;
+explicit simPosix ;
+
+alias simWindows
+    :   /CHIMERA//CORE
+    :   <FreeRTOS>enabled
+        <FreeRTOSPort>Windows
+        <link>static
+    ;
+explicit simWindows ;
+
+explicit_alias sim : /CHIMERA//CORE : <FreeRTOS>disabled ;
