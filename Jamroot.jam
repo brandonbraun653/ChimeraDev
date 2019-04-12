@@ -38,6 +38,7 @@ project ChimeraDev
     : requirements
         <toolset>gcc
         <link>static
+        <define>SIM
         <cxxflags>--std=gnu++14
         <Chimera>enabled
         <ChimeraBackend>Sim
