@@ -1,6 +1,8 @@
 import os ;
 import feature ;
-import lib/CommonTools/boost-build/features/thor_features ;
+
+import lib/CommonTools/boost-build/features/chimera ;
+import lib/CommonTools/boost-build/features/freertos ;
 
 rule explicit_alias ( name : sources * : requirements * : default-build * : usage-requirements * )
     {
@@ -14,11 +16,13 @@ using gcc ;
 
 use-project /PRJ : . ;
 use-project /CHIMERA : Chimera ;
+use-project /CHIMERA/TEST/STANDALONE : Chimera/test/standalone ;
 use-project /FREERTOS : lib/FreeRTOS ;
+use-project /GTEST : lib/CommonTools/googletest ;
 
 
 local boost_install_dir = [ os.environ BOOST_ROOT ] ;
-path-constant boost_inc_dir : $(boost_install_dir)/boost_1_68_0 ;
+path-constant boost_inc_dir : $(boost_install_dir)/boost_1_70_0 ;
 path-constant boost_lib_dir : $(boost_inc_dir)/stage/lib ;
 path-constant artifacts_dir : $(TOP)/artifacts ;
 
@@ -29,9 +33,10 @@ local boost_linux_libs = chrono ;
 # ------------------------------------------
 explicit_alias BOOST : : : : <include>$(boost_inc_dir) ;
 explicit_alias BOOST_LIB : : : : <linkflags>-L$(boost_lib_dir) ;
-explicit_alias CHIMERA_PORT : : : : <include>tst ;
+explicit_alias CHIMERA_PORT : : : : <include>Chimera/Chimera/sim/config/chimera ;
 explicit_alias CHIMERA_DEFS : : : : <define>CHIMERA_LITTLE_ENDIAN ;
-explicit_alias FreeRTOS_CFG : : : : <include>tst ;
+explicit_alias EIGEN ;
+explicit_alias FREERTOS_CFG : : : : <include>Chimera/Chimera/sim/config/freertos ;
 explicit_alias TARGET_OPTIONS ;
 
 project ChimeraDev
@@ -39,9 +44,9 @@ project ChimeraDev
         <toolset>gcc
         <link>static
         <define>SIM
-        <cxxflags>--std=gnu++14
+        <cxxflags>--std=gnu++17
         <Chimera>enabled
-        <ChimeraBackend>Sim
+        <Chimera-backend>Sim
 
         <use>BOOST_LIB
     ;
