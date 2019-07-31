@@ -1,6 +1,7 @@
 import os ;
 import feature ;
 import modules ;
+import toolset ;
 
 import lib/CommonTools/boost-build/features/chimera ;
 import lib/CommonTools/boost-build/features/freertos ;
@@ -11,8 +12,6 @@ rule explicit_alias ( name : sources * : requirements * : default-build * : usag
     alias $(name) : $(sources) : $(requirements) : $(default-build) : $(usage-requirements) ;
     explicit $(name) ;
     }
-
-using gcc ;
 
 path-constant TOP : . ;
 path-constant ARTIFACTS_DIR : $(TOP)/artifacts ;
@@ -38,7 +37,8 @@ local boost_linux_libs = chrono ;
 # /PRJ//XXXX Aliases
 # ------------------------------------------
 explicit_alias BOOST : : : : <include>$(boost_inc_dir) ;
-explicit_alias BOOST_LIB : : : : <linkflags>-L$(boost_lib_dir) ;
+explicit_alias BOOST_LIB : : : : <toolset>msvc:<linkflags>"/LIBPATH:$(boost_lib_dir)" 
+                                 <toolset>gcc:<linkflags>-L$(boost_lib_dir) ;
 explicit_alias CHIMERA_PORT : : : : <include>Chimera/Chimera/sim/config/chimera ;
 explicit_alias CHIMERA_DEFS : : : : <define>CHIMERA_LITTLE_ENDIAN ;
 explicit_alias EIGEN ;
@@ -49,7 +49,8 @@ project ChimeraDev
     : requirements
         <link>static
         <define>SIM
-        <cxxflags>--std=gnu++17
+        <toolset>gcc:<cxxflags>--std=gnu++17
+        <toolset>msvc:<cxxflags>"/std:c++17"
         <Chimera>enabled
         <Chimera-backend>Sim
 

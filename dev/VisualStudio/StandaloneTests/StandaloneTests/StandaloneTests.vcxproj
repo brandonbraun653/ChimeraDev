@@ -36,7 +36,114 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_allocator.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_buffer.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_crc.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_exception.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_logging.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_system.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_threading.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_watchdog.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\modules\freertos\freertos_hooks.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\modules\memory\chimera_memory_device.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\sim\freertos_hooks_prj.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\sim\sim_chimera.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\sim\sim_chimera_system.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\test\standalone\buffer\buffer_test.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\test\standalone\modules\memory\test_chimera_flash.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\test\standalone\standalone_main.cpp" />
+    <ClCompile Include="..\..\..\..\lib\FreeRTOS\croutine.c" />
+    <ClCompile Include="..\..\..\..\lib\FreeRTOS\event_groups.c" />
+    <ClCompile Include="..\..\..\..\lib\FreeRTOS\list.c" />
+    <ClCompile Include="..\..\..\..\lib\FreeRTOS\portable\MemMang\heap_4.c" />
+    <ClCompile Include="..\..\..\..\lib\FreeRTOS\portable\MSVC-MingW\port.c" />
+    <ClCompile Include="..\..\..\..\lib\FreeRTOS\queue.c" />
+    <ClCompile Include="..\..\..\..\lib\FreeRTOS\stream_buffer.c" />
+    <ClCompile Include="..\..\..\..\lib\FreeRTOS\tasks.c" />
+    <ClCompile Include="..\..\..\..\lib\FreeRTOS\timers.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\allocator.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\assert.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\buffer.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\chimera.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\constants\common.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\constants\physics.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\constants\units.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\crc.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\dma.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\exception.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\extensions\common.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\extensions\spi_ext.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\gpio.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\buffer_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\callback_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\clock_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\compiler_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\crc_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\dma_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\ethernet_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\event_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\gpio_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\macro.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\memory_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\power_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\serial_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\spi_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\system_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\threading_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\interface\watchdog_intf.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\logging.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\memory.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\modules\freertos\freertos_hooks.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\modules\memory\blockDevice.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\modules\memory\device.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\power.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\preprocessor.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\serial.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\sim\config\chimera\chimeraPort.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\sim\config\freertos\FreeRTOSConfig.h" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\sim\sim_chimera.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\spi.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\system.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\threading.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\callback_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\clock_types_fwd.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\common_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\crc_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\dma_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\event_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\gpio_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\memory_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\peripheral_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\power_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\power_types_fwd.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\serial_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\spi_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\system_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\threading_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\types\watchdog_types.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\utilities.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\watchdog.hpp" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\croutine.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\deprecated_definitions.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\event_groups.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\FreeRTOS.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\list.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\message_buffer.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\mpu_prototypes.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\mpu_wrappers.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\portable.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\projdefs.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\queue.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\semphr.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\StackMacros.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\stack_macros.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\stream_buffer.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\task.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\include\timers.h" />
+    <ClInclude Include="..\..\..\..\lib\FreeRTOS\portable\MSVC-MingW\portmacro.h" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
@@ -48,15 +155,18 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);CHIMERA_LITTLE_ENDIAN;NOMINMAX;USING_FREERTOS</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);$(ProjectDir)../../../../Chimera/test/fixtures;$(ProjectDir)../../../../Chimera/test/standalone;$(ProjectDir)../../../../Chimera;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../Chimera/test/fixtures;$(ProjectDir)../../../../Chimera/test/standalone;$(ProjectDir)../../../../Chimera;$(ProjectDir)../../../../Chimera/Chimera/sim/config/freertos;$(ProjectDir)../../../../Chimera/Chimera/sim/config/chimera;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/MSVC-MingW</AdditionalIncludeDirectories>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(BOOST_ROOT)/boost_1_70_0/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -64,49 +174,58 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);CHIMERA_LITTLE_ENDIAN;NOMINMAX;USING_FREERTOS</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);$(ProjectDir)../../../../Chimera/test/fixtures;$(ProjectDir)../../../../Chimera/test/standalone;$(ProjectDir)../../../../Chimera;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../Chimera/test/fixtures;$(ProjectDir)../../../../Chimera/test/standalone;$(ProjectDir)../../../../Chimera;$(ProjectDir)../../../../Chimera/Chimera/sim/config/freertos;$(ProjectDir)../../../../Chimera/Chimera/sim/config/chimera;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/MSVC-MingW</AdditionalIncludeDirectories>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(BOOST_ROOT)/boost_1_70_0/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);CHIMERA_LITTLE_ENDIAN;NOMINMAX;USING_FREERTOS</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);$(ProjectDir)../../../../Chimera/test/fixtures;$(ProjectDir)../../../../Chimera/test/standalone;$(ProjectDir)../../../../Chimera;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../Chimera/test/fixtures;$(ProjectDir)../../../../Chimera/test/standalone;$(ProjectDir)../../../../Chimera;$(ProjectDir)../../../../Chimera/Chimera/sim/config/freertos;$(ProjectDir)../../../../Chimera/Chimera/sim/config/chimera;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/MSVC-MingW</AdditionalIncludeDirectories>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalLibraryDirectories>$(BOOST_ROOT)/boost_1_70_0/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <PreprocessorDefinitions>X64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>X64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);CHIMERA_LITTLE_ENDIAN;NOMINMAX;USING_FREERTOS</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);$(ProjectDir)../../../../Chimera/test/fixtures;$(ProjectDir)../../../../Chimera/test/standalone;$(ProjectDir)../../../../Chimera;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories);$(BOOST_ROOT)/boost_1_70_0;$(ProjectDir)../../../../Chimera/test/fixtures;$(ProjectDir)../../../../Chimera/test/standalone;$(ProjectDir)../../../../Chimera;$(ProjectDir)../../../../Chimera/Chimera/sim/config/freertos;$(ProjectDir)../../../../Chimera/Chimera/sim/config/chimera;$(ProjectDir)../../../../lib/FreeRTOS/include;$(ProjectDir)../../../../lib/FreeRTOS/portable/MSVC-MingW</AdditionalIncludeDirectories>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalLibraryDirectories>$(BOOST_ROOT)/boost_1_70_0/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
