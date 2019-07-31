@@ -1,8 +1,10 @@
 import os ;
 import feature ;
+import modules ;
 
 import lib/CommonTools/boost-build/features/chimera ;
 import lib/CommonTools/boost-build/features/freertos ;
+import lib/CommonTools/boost-build/features/coverage ;
 
 rule explicit_alias ( name : sources * : requirements * : default-build * : usage-requirements * )
     {
@@ -10,13 +12,17 @@ rule explicit_alias ( name : sources * : requirements * : default-build * : usag
     explicit $(name) ;
     }
 
-path-constant TOP : . ;
-
 using gcc ;
+
+path-constant TOP : . ;
+path-constant ARTIFACTS_DIR : $(TOP)/artifacts ;
+path-constant COVERAGE_DIR : $(ARTIFACTS_DIR)/coverage ;
+path-constant COVERAGE_BUILD_DIR : $(COVERAGE_DIR)/build ;
 
 use-project /PRJ : . ;
 use-project /CHIMERA : Chimera ;
 use-project /CHIMERA/TEST/STANDALONE : Chimera/test/standalone ;
+use-project /COVERAGE : lib/CommonTools/boost-build/targets/coverage ;
 use-project /FREERTOS : lib/FreeRTOS ;
 use-project /GTEST : lib/CommonTools/googletest ;
 
@@ -41,7 +47,6 @@ explicit_alias TARGET_OPTIONS ;
 
 project ChimeraDev
     : requirements
-        <toolset>gcc
         <link>static
         <define>SIM
         <cxxflags>--std=gnu++17
