@@ -39,6 +39,7 @@
     <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_allocator.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_buffer.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_container.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_crc.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_exception.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_logging.cpp" />
@@ -51,6 +52,7 @@
     <ClCompile Include="..\..\..\..\Chimera\Chimera\sim\sim_chimera.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\Chimera\sim\sim_chimera_system.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\test\standalone\buffer\buffer_test.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\test\standalone\container\container_test.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\test\standalone\modules\memory\test_chimera_flash.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\test\standalone\standalone_main.cpp" />
     <ClCompile Include="..\..\..\..\lib\FreeRTOS\croutine.c" />
@@ -71,6 +73,7 @@
     <ClInclude Include="..\..\..\..\Chimera\Chimera\constants\common.hpp" />
     <ClInclude Include="..\..\..\..\Chimera\Chimera\constants\physics.hpp" />
     <ClInclude Include="..\..\..\..\Chimera\Chimera\constants\units.hpp" />
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\container.hpp" />
     <ClInclude Include="..\..\..\..\Chimera\Chimera\crc.hpp" />
     <ClInclude Include="..\..\..\..\Chimera\Chimera\dma.hpp" />
     <ClInclude Include="..\..\..\..\Chimera\Chimera\exception.hpp" />

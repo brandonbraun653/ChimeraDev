@@ -1,12 +1,14 @@
 import toolset ;
 
-use-project /BUFFER_TESTS : Chimera/test/standalone/buffer ;
+use-project /TEST_BUFFER : Chimera/test/standalone/buffer ;
+use-project /TEST_CONTAINER : Chimera/test/standalone/container ;
 
 # -----------------------------------------------
 # Build the coverage report from coverage files, both XML and HTML format
 # -----------------------------------------------
 alias BuildTests
-  : /BUFFER_TESTS//TEST
+  : /TEST_BUFFER//TEST
+    /TEST_CONTAINER//TEST
   ;
 explicit BuildTests ;
 

@@ -79,6 +79,12 @@
     <ClCompile Include="..\..\..\..\Chimera\Chimera\modules\memory\chimera_memory_device.cpp">
       <Filter>Chimera\modules\memory</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_container.cpp">
+      <Filter>Chimera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Chimera\test\standalone\container\container_test.cpp">
+      <Filter>test\standalone\container</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -143,6 +149,9 @@
     </Filter>
     <Filter Include="Chimera\modules\memory">
       <UniqueIdentifier>{c4b2a3f5-e020-40fe-ab72-ee9292adcdc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test\standalone\container">
+      <UniqueIdentifier>{8e37012a-0055-4017-bf67-fd2cd8fa46e5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -385,6 +394,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\Chimera\Chimera\modules\memory\blockDevice.hpp">
       <Filter>Chimera\modules\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Chimera\Chimera\container.hpp">
+      <Filter>Chimera</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

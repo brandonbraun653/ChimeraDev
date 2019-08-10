@@ -55,6 +55,7 @@ project ChimeraDev
         <Chimera-backend>Sim
 
         <use>BOOST_LIB
+    :   default-build debug gcc
     ;
 
 # When building, you will also need to specify:
