@@ -1,39 +1,39 @@
-import toolset ;
+# import toolset ;
 
-use-project /TEST_BUFFER : Chimera/test/standalone/buffer ;
-use-project /TEST_CONTAINER : Chimera/test/standalone/container ;
+# use-project /TEST_BUFFER : Chimera/test/standalone/buffer ;
+# use-project /TEST_CONTAINER : Chimera/test/standalone/container ;
 
-# -----------------------------------------------
-# Build the coverage report from coverage files, both XML and HTML format
-# -----------------------------------------------
-alias BuildTests
-  : /TEST_BUFFER//TEST
-    /TEST_CONTAINER//TEST
-  ;
-explicit BuildTests ;
+# # -----------------------------------------------
+# # Build the coverage report from coverage files, both XML and HTML format
+# # -----------------------------------------------
+# alias BuildTests
+#   : /TEST_BUFFER//TEST
+#     /TEST_CONTAINER//TEST
+#   ;
+# explicit BuildTests ;
 
 
-make ExecuteTests : BuildTests : @execute_tests ;
-actions execute_tests
-{
-  python run_tests.py --exe artifacts/coverage/build
-}
+# make ExecuteTests : BuildTests : @execute_tests ;
+# actions execute_tests
+# {
+#   python run_tests.py --exe artifacts/coverage/build
+# }
 
-alias run_tests
-  : ExecuteTests
-  : <cov>disabled
-  ;
-explicit run_tests ;
+# alias run_tests
+#   : ExecuteTests
+#   : <cov>disabled
+#   ;
+# explicit run_tests ;
 
-make ExecuteCoverageTests : BuildTests : @execute_cov_tests ;
-actions execute_cov_tests
-{
-  python run_tests.py --coverage --root ./ --output artifacts/coverage/report --exe artifacts/coverage/build --exclude lib/
-}
+# make ExecuteCoverageTests : BuildTests : @execute_cov_tests ;
+# actions execute_cov_tests
+# {
+#   python run_tests.py --coverage --root ./ --output artifacts/coverage/report --exe artifacts/coverage/build --exclude lib/
+# }
 
-alias run_coverage 
-  : ExecuteCoverageTests
-  : <cov>enabled
-    <toolset>gcc
-  ;
-explicit run_coverage ;
+# alias run_coverage 
+#   : ExecuteCoverageTests
+#   : <cov>enabled
+#     <toolset>gcc
+#   ;
+# explicit run_coverage ;

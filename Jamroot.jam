@@ -20,6 +20,7 @@ path-constant COVERAGE_BUILD_DIR : $(COVERAGE_DIR)/build ;
 
 use-project /PRJ : . ;
 use-project /CHIMERA : Chimera ;
+use-project /CHIMERA/THREADING : Chimera/Chimera/src/threading ;
 use-project /CHIMERA/TEST/STANDALONE : Chimera/test/standalone ;
 use-project /COVERAGE : lib/CommonTools/boost-build/targets/coverage ;
 use-project /FREERTOS : lib/FreeRTOS ;
@@ -40,7 +41,7 @@ explicit_alias BOOST : : : : <include>$(boost_inc_dir) ;
 explicit_alias BOOST_LIB : : : : <toolset>msvc:<linkflags>"/LIBPATH:$(boost_lib_dir)" 
                                  <toolset>gcc:<linkflags>-L$(boost_lib_dir) ;
 explicit_alias CHIMERA_PORT : : : : <include>Chimera/Chimera/sim/config/chimera ;
-explicit_alias CHIMERA_DEFS : : : : <define>CHIMERA_LITTLE_ENDIAN ;
+explicit_alias CHIMERA_DEFS : : : : <define>CHIMERA_LITTLE_ENDIAN <define>USING_STL_THREADS ;
 explicit_alias EIGEN ;
 explicit_alias FREERTOS_CFG : : : : <include>Chimera/Chimera/sim/config/freertos ;
 explicit_alias TARGET_OPTIONS ;
@@ -49,7 +50,7 @@ project ChimeraDev
     : requirements
         <link>static
         <define>SIM
-        <toolset>gcc:<cxxflags>--std=gnu++17
+        <toolset>gcc:<cxxflags>--std=gnu++2a
         <toolset>msvc:<cxxflags>"/std:c++17"
         <Chimera>enabled
         <Chimera-backend>Sim
