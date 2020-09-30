@@ -1,0 +1,39 @@
+{
+    "configurations": [
+        {
+            "name": "GCC-STL",
+            "includePath": [
+                "${BOOST_ROOT}/boost_1_70_0",
+                "${workspaceFolder}/Chimera",
+                "${workspaceFolder}/Chimera/Chimera/sim/config/chimera",
+                "${workspaceFolder}/lib/CommonTools/googletest/googletest/googletest/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "USING_STL_THREADS"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        },
+        {
+            "name": "GCC-FreeRTOS",
+            "includePath": [
+                "${BOOST_ROOT}/boost_1_70_0",
+                "${workspaceFolder}/Chimera",
+                "${workspaceFolder}/Chimera/Chimera/sim/config/chimera",
+                "${workspaceFolder}/lib/CommonTools/googletest/googletest/googletest/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "USING_FREERTOS_THREADS"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
