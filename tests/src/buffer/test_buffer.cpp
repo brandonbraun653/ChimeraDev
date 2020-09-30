@@ -137,26 +137,6 @@ namespace BoundaryChecks
     ASSERT_EQ( result, Chimera::Status::NOT_INITIALIZED );
   }
 
-  TEST( BoundaryChecks, Push_LockedDriver )
-  {
-    /*------------------------------------------------
-    Initialize
-    ------------------------------------------------*/
-    PeripheralBuffer buffer;
-    uint8_t tmp;
-    size_t tmpSize        = sizeof( tmp );
-    size_t actuallyPushed = 10;
-
-    buffer.assign( 10, 10 );
-    buffer.lock();
-
-    /*------------------------------------------------
-    Call while locked
-    ------------------------------------------------*/
-    auto result = buffer.push( &tmp, tmpSize, actuallyPushed );
-    ASSERT_EQ( result, Chimera::Status::LOCKED );
-  }
-
   TEST( BoundaryChecks, Pop_NullInput )
   {
     /*------------------------------------------------
@@ -183,43 +163,12 @@ namespace BoundaryChecks
     ASSERT_EQ( result, Chimera::Status::NOT_INITIALIZED );
   }
 
-  TEST( BoundaryChecks, Pop_LockedDriver )
-  {
-    /*------------------------------------------------
-    Initialize
-    ------------------------------------------------*/
-    PeripheralBuffer buffer;
-    uint8_t tmp;
-    size_t tmpSize        = sizeof( tmp );
-    size_t actuallyPopped = 10;
-
-    buffer.assign( 10, 10 );
-    buffer.lock();
-
-    /*------------------------------------------------
-    Call while locked
-    ------------------------------------------------*/
-    auto result = buffer.pop( &tmp, tmpSize, actuallyPopped );
-    ASSERT_EQ( result, Chimera::Status::LOCKED );
-  }
-
   TEST( BoundaryChecks, Flush_NotInitialized )
   {
     PeripheralBuffer buffer;
 
     auto result = buffer.flush();
     ASSERT_EQ( result, Chimera::Status::NOT_INITIALIZED );
-  }
-
-  TEST( BoundaryChecks, Flush_LockedDriver )
-  {
-    PeripheralBuffer buffer;
-
-    buffer.assign( 10, 10 );
-    buffer.lock();
-
-    auto result = buffer.flush();
-    ASSERT_EQ( result, Chimera::Status::LOCKED );
   }
 
   TEST( BoundaryChecks, TransferInto_NotInitialized )
@@ -230,36 +179,12 @@ namespace BoundaryChecks
     ASSERT_EQ( result, Chimera::Status::NOT_INITIALIZED );
   }
 
-  TEST( BoundaryChecks, TransferInto_LockedDriver )
-  {
-    PeripheralBuffer buffer;
-    size_t tmp = 0;
-
-    buffer.assign( 10, 10 );
-    buffer.lock();
-
-    auto result = buffer.transferInto( 10, tmp );
-    ASSERT_EQ( result, Chimera::Status::LOCKED );
-  }
-
   TEST( BoundaryChecks, TransferOutOf_NotInitialized )
   {
     PeripheralBuffer buffer;
     size_t tmp  = 0;
     auto result = buffer.transferOutOf( 10, tmp );
     ASSERT_EQ( result, Chimera::Status::NOT_INITIALIZED );
-  }
-
-  TEST( BoundaryChecks, TransferOutOf_LockedDriver )
-  {
-    PeripheralBuffer buffer;
-    size_t tmp = 0;
-
-    buffer.assign( 10, 10 );
-    buffer.lock();
-
-    auto result = buffer.transferOutOf( 10, tmp );
-    ASSERT_EQ( result, Chimera::Status::LOCKED );
   }
 }  // namespace BoundaryChecks
 

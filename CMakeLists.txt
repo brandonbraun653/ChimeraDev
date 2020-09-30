@@ -13,7 +13,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 include("lib/CommonTools/cmake/options/common.cmake")
 
 # Override the linker command
-#include("lib/CommonTools/cmake/toolchains/linker_whole_archive.cmake")
+include("lib/CommonTools/cmake/toolchains/linker_whole_archive.cmake")
 
 # ====================================================
 # Import common packages and projects
@@ -24,7 +24,6 @@ add_subdirectory("lib/Aurora")
 add_subdirectory("lib/FreeRTOS")
 add_subdirectory("Chimera")
 add_subdirectory("tests")
-
 
 # ====================================================
 # Import the test driver targets
