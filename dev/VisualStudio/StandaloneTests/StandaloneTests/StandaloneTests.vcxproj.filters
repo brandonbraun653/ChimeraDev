@@ -43,9 +43,6 @@
     <ClCompile Include="..\..\..\..\Chimera\test\standalone\modules\memory\test_chimera_flash.cpp">
       <Filter>test\standalone\modules\memory</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Chimera\test\standalone\buffer\buffer_test.cpp">
-      <Filter>test\standalone\buffer</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\lib\FreeRTOS\croutine.c">
       <Filter>FreeRTOS</Filter>
     </ClCompile>
@@ -82,7 +79,10 @@
     <ClCompile Include="..\..\..\..\Chimera\Chimera\chimera_container.cpp">
       <Filter>Chimera</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Chimera\test\standalone\container\container_test.cpp">
+    <ClCompile Include="..\..\..\..\Chimera\test\standalone\buffer\test_buffer.cpp">
+      <Filter>test\standalone\buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Chimera\test\standalone\container\test_container.cpp">
       <Filter>test\standalone\container</Filter>
     </ClCompile>
   </ItemGroup>

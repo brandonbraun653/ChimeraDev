@@ -51,8 +51,8 @@
     <ClCompile Include="..\..\..\..\Chimera\Chimera\sim\freertos_hooks_prj.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\Chimera\sim\sim_chimera.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\Chimera\sim\sim_chimera_system.cpp" />
-    <ClCompile Include="..\..\..\..\Chimera\test\standalone\buffer\buffer_test.cpp" />
-    <ClCompile Include="..\..\..\..\Chimera\test\standalone\container\container_test.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\test\standalone\buffer\test_buffer.cpp" />
+    <ClCompile Include="..\..\..\..\Chimera\test\standalone\container\test_container.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\test\standalone\modules\memory\test_chimera_flash.cpp" />
     <ClCompile Include="..\..\..\..\Chimera\test\standalone\standalone_main.cpp" />
     <ClCompile Include="..\..\..\..\lib\FreeRTOS\croutine.c" />
