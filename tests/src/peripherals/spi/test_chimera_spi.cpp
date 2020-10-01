@@ -1,24 +1,24 @@
 /********************************************************************************
  *  File Name:
- *    test_chimera_gpio.cpp
+ *    test_chimera_spi.cpp
  *
  *  Description:
- *    Tests the Chimera GPIO driver interface
+ *    Tests the Chimera SPI driver interface
  *
  *  2020 | Brandon Braun | brandonbraun653@gmail.com
  *******************************************************************************/
 
 /* Chimera Includes  */
-#include <Chimera/gpio>
+#include <Chimera/spi>
 
 /* Testing Includes */
 #include <gtest/gtest.h>
-#include "test_fixture_gpio.hpp"
+#include "test_fixture_spi.hpp"
 
 
-TEST( GPIOTests, DriverStandard )
+TEST( SPITests, DriverStandard )
 {
-  using namespace Chimera::GPIO;
+  using namespace Chimera::SPI;
 
   /*-------------------------------------------------
   Initialize
@@ -28,14 +28,14 @@ TEST( GPIOTests, DriverStandard )
   /*-------------------------------------------------
   Call & Verify
   -------------------------------------------------*/
-  EXPECT_EQ( Chimera::GPIO::initialize(), Chimera::Status::OK );
-  EXPECT_EQ( Chimera::GPIO::reset(), Chimera::Status::OK );
-  EXPECT_NE( Chimera::GPIO::getDriver( Port::PORTA, 0 ), nullptr );
+  EXPECT_EQ( Chimera::SPI::initialize(), Chimera::Status::OK );
+  EXPECT_EQ( Chimera::SPI::reset(), Chimera::Status::OK );
+  EXPECT_NE( Chimera::SPI::getDriver( Channel::SPI1 ), nullptr );
 }
 
-TEST( GPIOTests, DriverBadRegistration )
+TEST( SPITests, DriverBadRegistration )
 {
-  using namespace Chimera::GPIO;
+  using namespace Chimera::SPI;
 
   /*-------------------------------------------------
   Initialize
@@ -45,15 +45,15 @@ TEST( GPIOTests, DriverBadRegistration )
   /*-------------------------------------------------
   Call & Verify
   -------------------------------------------------*/
-  EXPECT_EQ( Chimera::GPIO::initialize(), Chimera::Status::FAILED_INIT );
-  EXPECT_EQ( Chimera::GPIO::reset(), Chimera::Status::NOT_SUPPORTED );
-  EXPECT_EQ( Chimera::GPIO::getDriver( Port::PORTA, 0 ), nullptr );
+  EXPECT_EQ( Chimera::SPI::initialize(), Chimera::Status::FAILED_INIT );
+  EXPECT_EQ( Chimera::SPI::reset(), Chimera::Status::NOT_SUPPORTED );
+  EXPECT_EQ( Chimera::SPI::getDriver( Channel::SPI1 ), nullptr );
 }
 
 
-TEST( GPIOTests, DriverRegisteredNotSupported )
+TEST( SPITests, DriverRegisteredNotSupported )
 {
-  using namespace Chimera::GPIO;
+  using namespace Chimera::SPI;
 
   /*-------------------------------------------------
   Initialize
@@ -63,15 +63,15 @@ TEST( GPIOTests, DriverRegisteredNotSupported )
   /*-------------------------------------------------
   Call & Verify
   -------------------------------------------------*/
-  EXPECT_EQ( Chimera::GPIO::initialize(), Chimera::Status::NOT_SUPPORTED );
-  EXPECT_EQ( Chimera::GPIO::reset(), Chimera::Status::NOT_SUPPORTED );
-  EXPECT_EQ( Chimera::GPIO::getDriver( Port::PORTA, 0 ), nullptr );
+  EXPECT_EQ( Chimera::SPI::initialize(), Chimera::Status::NOT_SUPPORTED );
+  EXPECT_EQ( Chimera::SPI::reset(), Chimera::Status::NOT_SUPPORTED );
+  EXPECT_EQ( Chimera::SPI::getDriver( Channel::SPI1 ), nullptr );
 }
 
 
-TEST( GPIOTests, DriverRegisteredMissingFunctions )
+TEST( SPITests, DriverRegisteredMissingFunctions )
 {
-  using namespace Chimera::GPIO;
+  using namespace Chimera::SPI;
 
   /*-------------------------------------------------
   Initialize
@@ -81,7 +81,7 @@ TEST( GPIOTests, DriverRegisteredMissingFunctions )
   /*-------------------------------------------------
   Call & Verify
   -------------------------------------------------*/
-  EXPECT_EQ( Chimera::GPIO::initialize(), Chimera::Status::NOT_SUPPORTED );
-  EXPECT_EQ( Chimera::GPIO::reset(), Chimera::Status::NOT_SUPPORTED );
-  EXPECT_EQ( Chimera::GPIO::getDriver( Port::PORTA, 0 ), nullptr );
+  EXPECT_EQ( Chimera::SPI::initialize(), Chimera::Status::NOT_SUPPORTED );
+  EXPECT_EQ( Chimera::SPI::reset(), Chimera::Status::NOT_SUPPORTED );
+  EXPECT_EQ( Chimera::SPI::getDriver( Channel::SPI1 ), nullptr );
 }

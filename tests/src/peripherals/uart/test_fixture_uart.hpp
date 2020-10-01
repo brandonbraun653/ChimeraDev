@@ -1,6 +1,6 @@
 /********************************************************************************
  *  File Name:
- *    test_fixture_gpio.hpp
+ *    test_fixture_uart.hpp
  *
  *  Description:
  *    Fixtures for helping configure the test
@@ -9,13 +9,13 @@
  *******************************************************************************/
 
 #pragma once
-#ifndef CHIMERA_TEST_GPIO_FIXTURES_HPP
-#define CHIMERA_TEST_GPIO_FIXTURES_HPP
+#ifndef CHIMERA_TEST_UART_FIXTURES_HPP
+#define CHIMERA_TEST_UART_FIXTURES_HPP
 
 /* STL Includes */
 #include <cstdint>
 
-namespace Chimera::GPIO::Testing
+namespace Chimera::UART::Testing
 {
   /*-------------------------------------------------------------------------------
   Enumerations
@@ -36,6 +36,6 @@ namespace Chimera::GPIO::Testing
   -------------------------------------------------------------------------------*/
   void loadDriverType( const BackendDriverType type );
 
-}  // namespace Chimera::GPIO::Testing
+}  // namespace Chimera::UART::Testing
 
-#endif  /* !CHIMERA_TEST_GPIO_FIXTURES_HPP */
+#endif  /* !CHIMERA_TEST_UART_FIXTURES_HPP */

@@ -1,6 +1,6 @@
 /********************************************************************************
  *  File Name:
- *    chimera_gpio_backend.cpp
+ *    chimera_spi_backend.cpp
  *
  *  Description:
  *    Fake backend registration file for testing purposes
@@ -9,19 +9,19 @@
  *******************************************************************************/
 
 /* Chimera Includes */
-#include <Chimera/gpio>
+#include <Chimera/spi>
 
 /* Testing Includes */
-#include "test_fixture_gpio.hpp"
+#include "test_fixture_spi.hpp"
 
 
-namespace Chimera::GPIO::Testing
+namespace Chimera::SPI::Testing
 {
   /*-------------------------------------------------------------------------------
   Static Data
   -------------------------------------------------------------------------------*/
   static BackendDriverType currentDriver;
-  static Chimera::GPIO::Driver_sPtr testDriverObj;
+  static Chimera::SPI::Driver_sPtr testDriverObj;
 
   /*-------------------------------------------------------------------------------
   Public Functions
@@ -30,9 +30,9 @@ namespace Chimera::GPIO::Testing
   {
     currentDriver = type;
   }
-}  // namespace Chimera::GPIO::Testing
+}  // namespace Chimera::SPI::Testing
 
-namespace Chimera::GPIO::Backend
+namespace Chimera::SPI::Backend
 {
   /*-------------------------------------------------------------------------------
   Public Functions
@@ -49,11 +49,11 @@ namespace Chimera::GPIO::Backend
       return Chimera::Status::OK;
     }
 
-    static Chimera::GPIO::Driver_sPtr getDriver( const Port port, const Pin pin )
+    static Chimera::SPI::Driver_sPtr getDriver( const Channel channel )
     {
       if( !Testing::testDriverObj )
       {
-        Testing::testDriverObj = std::make_shared<Chimera::GPIO::Driver>();
+        Testing::testDriverObj = std::make_shared<Chimera::SPI::Driver>();
       }
 
       return Testing::testDriverObj;
@@ -61,7 +61,7 @@ namespace Chimera::GPIO::Backend
   }
 
 
-  Chimera::Status_t registerDriver( Chimera::GPIO::Backend::DriverConfig &registry )
+  Chimera::Status_t registerDriver( Chimera::SPI::Backend::DriverConfig &registry )
   {
     switch( Testing::currentDriver )
     {
@@ -100,9 +100,9 @@ namespace Chimera::GPIO::Backend
         break;
     }
   }
-}  // namespace Chimera::GPIO::Backend
+}  // namespace Chimera::SPI::Backend
 
-namespace Chimera::GPIO
+namespace Chimera::SPI
 {
   /*-------------------------------------------------------------------------------
   Driver Implementation
@@ -110,7 +110,6 @@ namespace Chimera::GPIO
   Driver::Driver() : mDriver( nullptr )
   {
   }
-
 
   Driver::~Driver()
   {
@@ -120,37 +119,98 @@ namespace Chimera::GPIO
   /*-------------------------------------------------
   Interface: Hardware
   -------------------------------------------------*/
-  Chimera::Status_t Driver::init( const Chimera::GPIO::PinInit &pinInit )
+  Chimera::Status_t Driver::init( const Chimera::SPI::DriverConfig &setupStruct )
   {
     return Chimera::Status::OK;
   }
 
 
-  Chimera::Status_t Driver::init( const Chimera::GPIO::Port port, const uint8_t pin )
+  Chimera::SPI::DriverConfig Driver::getInit()
+  {
+    return Chimera::SPI::DriverConfig();
+  }
+
+
+  Chimera::Status_t Driver::deInit()
   {
     return Chimera::Status::OK;
   }
 
 
-  Chimera::Status_t Driver::setMode( const Chimera::GPIO::Drive drive, const Chimera::GPIO::Pull pull )
+  Chimera::Status_t Driver::setChipSelect( const Chimera::GPIO::State value )
   {
     return Chimera::Status::OK;
   }
 
 
-  Chimera::Status_t Driver::setState( const Chimera::GPIO::State state )
+  Chimera::Status_t Driver::setChipSelectControlMode( const Chimera::SPI::CSMode mode )
   {
     return Chimera::Status::OK;
   }
 
 
-  Chimera::Status_t Driver::getState( Chimera::GPIO::State &state )
+  Chimera::Status_t Driver::writeBytes( const void *const txBuffer, const size_t length )
   {
     return Chimera::Status::OK;
   }
 
 
-  Chimera::Status_t Driver::toggle()
+  Chimera::Status_t Driver::readBytes( void *const rxBuffer, const size_t length )
+  {
+    return Chimera::Status::OK;
+  }
+
+
+  Chimera::Status_t Driver::readWriteBytes( const void *const txBuffer, void *const rxBuffer, const size_t length )
+  {
+    return Chimera::Status::OK;
+  }
+
+
+  Chimera::Status_t Driver::setPeripheralMode( const Chimera::Hardware::PeripheralMode mode )
+  {
+    return Chimera::Status::OK;
+  }
+
+
+  Chimera::Status_t Driver::setClockFrequency( const size_t freq, const size_t tolerance )
+  {
+    return Chimera::Status::OK;
+  }
+
+
+  size_t Driver::getClockFrequency()
+  {
+    return Chimera::Status::OK;
+  }
+
+
+  /*-------------------------------------------------
+  Interface: Listener
+  -------------------------------------------------*/
+  Chimera::Status_t Driver::registerListener( Chimera::Event::Actionable &listener, const size_t timeout, size_t &registrationID )
+  {
+    return Chimera::Status::OK;
+  }
+
+
+  Chimera::Status_t Driver::removeListener( const size_t registrationID, const size_t timeout )
+  {
+    return Chimera::Status::OK;
+  }
+
+
+  /*-------------------------------------------------
+  Interface: AsyncIO
+  -------------------------------------------------*/
+  Chimera::Status_t Driver::await( const Chimera::Event::Trigger event, const size_t timeout )
+  {
+    return Chimera::Status::OK;
+  }
+
+
+  Chimera::Status_t Driver::await( const Chimera::Event::Trigger event, Chimera::Threading::BinarySemaphore &notifier,
+                           const size_t timeout )
   {
     return Chimera::Status::OK;
   }
@@ -183,4 +243,5 @@ namespace Chimera::GPIO
   void Driver::unlockFromISR()
   {
   }
-}    // namespace Chimera::GPIO
+
+}    // namespace Chimera::SPI

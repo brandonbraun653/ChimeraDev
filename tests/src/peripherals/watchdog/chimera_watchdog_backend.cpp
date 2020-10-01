@@ -1,6 +1,6 @@
 /********************************************************************************
  *  File Name:
- *    chimera_gpio_backend.cpp
+ *    chimera_watchdog_backend.cpp
  *
  *  Description:
  *    Fake backend registration file for testing purposes
@@ -9,19 +9,19 @@
  *******************************************************************************/
 
 /* Chimera Includes */
-#include <Chimera/gpio>
+#include <Chimera/watchdog>
 
 /* Testing Includes */
-#include "test_fixture_gpio.hpp"
+#include "test_fixture_watchdog.hpp"
 
 
-namespace Chimera::GPIO::Testing
+namespace Chimera::Watchdog::Testing
 {
   /*-------------------------------------------------------------------------------
   Static Data
   -------------------------------------------------------------------------------*/
   static BackendDriverType currentDriver;
-  static Chimera::GPIO::Driver_sPtr testDriverObj;
+  static Chimera::Watchdog::Driver_sPtr testDriverObj;
 
   /*-------------------------------------------------------------------------------
   Public Functions
@@ -30,9 +30,9 @@ namespace Chimera::GPIO::Testing
   {
     currentDriver = type;
   }
-}  // namespace Chimera::GPIO::Testing
+}  // namespace Chimera::Watchdog::Testing
 
-namespace Chimera::GPIO::Backend
+namespace Chimera::Watchdog::Backend
 {
   /*-------------------------------------------------------------------------------
   Public Functions
@@ -49,11 +49,11 @@ namespace Chimera::GPIO::Backend
       return Chimera::Status::OK;
     }
 
-    static Chimera::GPIO::Driver_sPtr getDriver( const Port port, const Pin pin )
+    static Chimera::Watchdog::Driver_sPtr getDriver( const Channel channel )
     {
       if( !Testing::testDriverObj )
       {
-        Testing::testDriverObj = std::make_shared<Chimera::GPIO::Driver>();
+        Testing::testDriverObj = std::make_shared<Chimera::Watchdog::Driver>();
       }
 
       return Testing::testDriverObj;
@@ -61,7 +61,7 @@ namespace Chimera::GPIO::Backend
   }
 
 
-  Chimera::Status_t registerDriver( Chimera::GPIO::Backend::DriverConfig &registry )
+  Chimera::Status_t registerDriver( Chimera::Watchdog::Backend::DriverConfig &registry )
   {
     switch( Testing::currentDriver )
     {
@@ -100,9 +100,9 @@ namespace Chimera::GPIO::Backend
         break;
     }
   }
-}  // namespace Chimera::GPIO::Backend
+}  // namespace Chimera::Watchdog::Backend
 
-namespace Chimera::GPIO
+namespace Chimera::Watchdog
 {
   /*-------------------------------------------------------------------------------
   Driver Implementation
@@ -110,7 +110,6 @@ namespace Chimera::GPIO
   Driver::Driver() : mDriver( nullptr )
   {
   }
-
 
   Driver::~Driver()
   {
@@ -120,39 +119,51 @@ namespace Chimera::GPIO
   /*-------------------------------------------------
   Interface: Hardware
   -------------------------------------------------*/
-  Chimera::Status_t Driver::init( const Chimera::GPIO::PinInit &pinInit )
+  Status_t initialize( const uint32_t timeout_mS, const uint8_t windowPercent )
   {
     return Chimera::Status::OK;
   }
 
 
-  Chimera::Status_t Driver::init( const Chimera::GPIO::Port port, const uint8_t pin )
+  Status_t start()
   {
     return Chimera::Status::OK;
   }
 
 
-  Chimera::Status_t Driver::setMode( const Chimera::GPIO::Drive drive, const Chimera::GPIO::Pull pull )
+  Status_t stop()
   {
     return Chimera::Status::OK;
   }
 
 
-  Chimera::Status_t Driver::setState( const Chimera::GPIO::State state )
+  Status_t kick()
   {
     return Chimera::Status::OK;
   }
 
 
-  Chimera::Status_t Driver::getState( Chimera::GPIO::State &state )
+  Status_t pauseOnDebugHalt( const bool enable )
   {
     return Chimera::Status::OK;
   }
 
 
-  Chimera::Status_t Driver::toggle()
+  size_t getTimeout()
   {
-    return Chimera::Status::OK;
+    return 1;
+  }
+
+
+  size_t maxTimeout()
+  {
+    return 1;
+  }
+
+
+  size_t minTimeout()
+  {
+    return 1;
   }
 
 
@@ -183,4 +194,5 @@ namespace Chimera::GPIO
   void Driver::unlockFromISR()
   {
   }
-}    // namespace Chimera::GPIO
+
+}    // namespace Chimera::Watchdog

@@ -26,6 +26,7 @@ target_compile_options(${TARGET_CHIP} INTERFACE
 
 target_compile_definitions(${TARGET_CHIP} INTERFACE
   CHIMERA_LITTLE_ENDIAN
+  CHIMERA_TEST
 )
 
 target_link_options(${TARGET_CHIP} INTERFACE

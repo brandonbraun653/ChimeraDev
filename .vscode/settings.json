@@ -3,7 +3,8 @@
     "spi": "cpp",
     "gpio": "cpp",
     "buffer": "cpp",
-    "thread": "cpp"
+    "thread": "cpp",
+    "uart": "cpp"
   },
   "peacock.color": "#215732",
   "workbench.colorCustomizations": {

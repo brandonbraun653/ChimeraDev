@@ -13,6 +13,10 @@ set(LINK_LIBS
 # Additional Projects
 # ====================================================
 add_subdirectory("peripherals/gpio")
+add_subdirectory("peripherals/spi")
+add_subdirectory("peripherals/uart")
+add_subdirectory("peripherals/usart")
+add_subdirectory("peripherals/watchdog")
 
 # ====================================================
 # Test Libraries
