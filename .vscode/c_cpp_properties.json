@@ -4,6 +4,7 @@
             "name": "GCC-STL",
             "includePath": [
                 "${BOOST_ROOT}/boost_1_70_0",
+                "${workspaceFolder}/lib/Aurora",
                 "${workspaceFolder}/Chimera",
                 "${workspaceFolder}/Chimera/Chimera/sim/config/chimera",
                 "${workspaceFolder}/lib/CommonTools/googletest/googletest/googletest/include"

@@ -12,13 +12,18 @@ set(LINK_LIBS
 # ====================================================
 # Additional Projects
 # ====================================================
+add_subdirectory("peripherals/can")
 add_subdirectory("peripherals/clock")
+add_subdirectory("peripherals/crc")
+add_subdirectory("peripherals/dma")
 add_subdirectory("peripherals/gpio")
 add_subdirectory("peripherals/power")
 add_subdirectory("peripherals/spi")
+add_subdirectory("peripherals/timer")
 add_subdirectory("peripherals/uart")
 add_subdirectory("peripherals/usart")
 add_subdirectory("peripherals/watchdog")
+add_subdirectory("threading")
 
 # ====================================================
 # Test Libraries
