@@ -175,9 +175,59 @@
 
   \subsubsection{Generic Structure}
 
+  % \begin{forest}
+  %   for tree={font=\sffamily, grow'=0,
+  %   folder indent=.1em, folder icons,
+  %   edge=densely dotted}
+  %   [LLD Peripheral Driver (CAN Example, STLM32L432KC)
+  %     [test
+  %         [test\_lld\_can\_driver.cpp, is file]
+  %         ]
+  %     [variant
+  %         [hw\_can\_register\_stm32l4xxxx.hpp, is file]
+  %         [hw\_can\_register\_stm32l432kc.hpp, is file]
+  %         [hw\_can\_register\_stm32l432kc.cpp, is file]
+  %         ]
+  %     [CMakeLists.txt, is file]
+  %     [hw\_can\_data.cpp, is file]
+  %     [hw\_can\_driver.cpp, is file]
+  %     [hw\_can\_prj.hpp, is file]
+  %     [hw\_can\_types.hpp, is file]
+  %   ]
+  % \end{forest}
+
   \subsubsection{Build System}
 
-  \subsubsection{Driver Implementation}
+  \subsubsection{Example Driver Implementation (CAN)}
+
+  \par
+    A hardware driver can be broken up into three main components: Primary logic, chip variant definitions, and system tests.
+    Each of these components serve a specific purpose and are broken down as follows.
+
+    \paragraph{Primary Logic}\mbox{}\\
+    Some more text
+    \par
+
+  \paragraph{Chip Variant Definitions}\mbox{}\\
+    These files describe the physical hardware and all configuration options. It is responsible for
+    two levels of description, a high level version that contains definitions common to all variants, and a
+    lower level version that is highly chip specific. For example, within a device family, a hardware peripheral
+    typically shares the same core register types, configuration bits, and fields. Some chips may have a bit here
+    or there turned on/off, but by and large they are the same. Alternatively, not all chips have the same number
+    of peripherals, or some core features are disabled, etc. This kind of descriptive information would go into the
+    aforementioned lower level version.
+
+  \par
+    The structure of these files are contained as such: The high level definitions go into \emph{hw\_can\_register\_stm32l4xxxx.hpp}
+    and the low level definitions into \emph{hw\_can\_register\_stm32l432kc.(c,h)pp}
+
+  \par
+
+
+  \paragraph{System Tests}\mbox{}\\
+    More text
+  \par
+
 
   \begin{lstlisting}
 
