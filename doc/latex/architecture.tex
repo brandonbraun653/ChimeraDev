@@ -204,33 +204,51 @@
     A hardware driver can be broken up into three main components: Primary logic, chip variant definitions, and system tests.
     Each of these components serve a specific purpose and are broken down as follows.
 
-    \paragraph{Primary Logic}\mbox{}\\
-    Some more text
-    \par
+    \paragraph{Primary Logic}\mbox{}\newline
+      This section forms the core of the hardware driver and serve to implement register level interactions
+      as well as satisfy requirements from the interface layer. This is achieved through the use of several
+      kinds of files. \newline
 
-  \paragraph{Chip Variant Definitions}\mbox{}\\
+      The low level driver interface is satisfied by \emph{hw\_can\_driver.cpp}, which houses the definition
+      of the core driver class declaration. This fully encapsulates all the idiosyncracies that may be present
+      in the actual hardware. Note that the interface does not specify thread safety at this layer, so where
+      possible, the driver should be atomic. In general though, it's safe to assume that under proper use
+      cases, the driver will be called under protection from higher level driver thread safety
+      implementations.\newline
+
+      Additionally, data requirements from the interface layer are satisfied by \emph{hw\_can\_data.cpp}. This
+      contains configuration mapping structures, lists of available peripherals, options supported by the driver,
+      etc. Most of these data fields will be constant as they indicate hardware properties that should not
+      change, either because they are set on boot or they are hardwired into the silicon.\newline
+
+      Not all devices are the same, so definitions are collected into \emph{hw\_can\_prj.hpp}. This file uses
+      compiler flags to select the proper header file for a given chip variant from the Variant folder. At a
+      bare minimum, it includes the top level common definitions, then selectively includes additional
+      definitions based on the chip.\newline
+
+      Finally, common types that describe hardware characteristics, behaviors, configuration options, etc are
+      described inside of \emph{hw\_can\_types.hpp}. These should \emph{not} be used in higher layer drivers
+      if possible as it introduces tight coupling between the HLD and LLD.\newline
+
+  \paragraph{Chip Variant Definitions}\mbox{}\newline
     These files describe the physical hardware and all configuration options. It is responsible for
     two levels of description, a high level version that contains definitions common to all variants, and a
     lower level version that is highly chip specific. For example, within a device family, a hardware peripheral
     typically shares the same core register types, configuration bits, and fields. Some chips may have a bit here
     or there turned on/off, but by and large they are the same. Alternatively, not all chips have the same number
     of peripherals, or some core features are disabled, etc. This kind of descriptive information would go into the
-    aforementioned lower level version.
+    aforementioned lower level version. \newline
 
   \par
     The structure of these files are contained as such: The high level definitions go into \emph{hw\_can\_register\_stm32l4xxxx.hpp}
     and the low level definitions into \emph{hw\_can\_register\_stm32l432kc.(c,h)pp}
 
-  \par
-
-
-  \paragraph{System Tests}\mbox{}\\
-    More text
-  \par
-
-
-  \begin{lstlisting}
-
-  \end{lstlisting}
+  \paragraph{System Tests}\mbox{}\newline
+    The test drivers for each peripheral are intended to interrogate the low level driver on the
+    physical device. As such its scope is fairly limited and should not extend to behavior outside
+    of the LLD interface layer described previously. Each peripheral will have a core set of tests
+    inside of \emph{test\_lld\_can\_driver.cpp} and any additional tests inside of
+    \emph{test\_lld\_can\_xyz.cpp}. These tests are likely to be small as they will be
+    constrained by the on-chip Flash and RAM. \newline
 
 \end{document}
